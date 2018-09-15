@@ -1,0 +1,32 @@
+{
+  "name": "24sim",
+  "version": "0.1.0",
+  "description": "2x2x2x2 puzzle sim",
+  "author": "Tomas Rokicki",
+  "license": "GPL-3.0-or-later",
+  "main": "./dist/24sim.js",
+  "types": "./dist/index.d.ts",
+  "dependencies": {
+    "alg": "^0.9.15",
+    "kpuzzle": "^0.9.11",
+    "twisty": "^0.9.10"
+  },
+  "externalsForWebpack": [
+    "alg", "kpuzzle", "twisty"
+  ],
+  "devDependencies": {
+    "@types/chai": "^4.1.4",
+    "@types/mocha": "^5.2.3",
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "ts-loader": "^4.4.2",
+    "ts-node": "^7.0.0",
+    "typescript": "^2.9.2",
+    "webpack": "^4.12.2",
+    "webpack-cli": "^3.0.8",
+    "webpack-notifier": "^1.6.0"
+  },
+  "scripts": {
+    "prepublish": "make dist"
+  }
+}
