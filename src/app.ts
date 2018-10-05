@@ -1,5 +1,5 @@
 import { Twisty } from "twisty"
-import { SiGNMove, getAlgURLParam, Sequence, algToString, parse as algparse} from "alg"
+import { BlockMove, getAlgURLParam, Sequence, algToString, parse as algparse} from "alg"
 import { KPuzzle, KPuzzleDefinition, parse } from "kpuzzle"
 
 var twisty:Twisty ;
@@ -675,7 +675,9 @@ var svg3 = `
 </svg>
 ` ;
 var svg = (true ? svg3 : true ? svg2 : svg1) ;
-var ksolve = `Name NOGOODNAME
+var ksolve = `
+# Test comment
+Name 222NOGOODNAME3322  
 
 # Marc Ringuette 9/12/2018
 #
@@ -683,24 +685,24 @@ var ksolve = `Name NOGOODNAME
 #
 # Solved position here is IDentity (1-64 in sequence); this is handy for composing moves into macro-moves.
 
-Set Stickers 64 1
+Set Stickers 64 1  
 
-Solved
-Stickers
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64
+Solved  
+Stickers  
+ 1 2 3 4 5 6   7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64  
 End
 
 Move Rx
-Stickers
-17 20 18 19 21 23 24 22 5 8 6 7 1 3 4 2 29 31 32 30 25 28 26 27 9 11 12 10 13 16 14 15 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64
-End
+Stickers 
+17 20 18 19 21 23 24 22 5 8 6 7 1 3 4 2 29 31 32 30 25 28 26 27 9 11 12 10 13 16 14 15 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 
+End 
 
-Move Ry
+Move Ry 
 Stickers
 13 14 15 16 1 2 3 4 5 6 7 8 9 10 11 12 29 30 31 32 17 18 19 20 21 22 23 24 25 26 27 28 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64
-End
+End 
 
-Move Rz
+Move  Rz 
 Stickers
 5 7 8 6 21 24 22 23 25 27 28 26 9 12 10 11 1 4 2 3 17 19 20 18 29 32 30 31 13 15 16 14 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64
 End
@@ -778,7 +780,7 @@ function domove(mv:string, mod:number) {
           newmv.nestedUnits.length == 1 && oldalg.nestedUnits.length > 0) {
          var lastmv = oldalg.nestedUnits[oldalg.nestedUnits.length-1] ;
          var thismv = newmv.nestedUnits[0] ;
-         if (lastmv instanceof SiGNMove && thismv instanceof SiGNMove &&
+         if (lastmv instanceof BlockMove && thismv instanceof BlockMove &&
              lastmv.family == thismv.family &&
              lastmv.outerLayer == thismv.outerLayer &&
              lastmv.innerLayer == thismv.innerLayer) {
@@ -793,7 +795,7 @@ function domove(mv:string, mod:number) {
                while (newAmount + newAmount <= -mod)
                   newAmount += mod ;
                newArr[oldalg.nestedUnits.length-1] =
-                 new SiGNMove(lastmv.outerLayer, lastmv.innerLayer,
+                 new BlockMove(lastmv.outerLayer, lastmv.innerLayer,
                               lastmv.family, newAmount) ;
             }
             algoinput.value = (algToString(new Sequence(newArr))) ;
