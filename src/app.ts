@@ -1,6 +1,6 @@
-import { Twisty } from "twisty"
-import { BlockMove, getAlgURLParam, Sequence, algToString, parse as algparse} from "alg"
-import { KPuzzle, KPuzzleDefinition, parse } from "kpuzzle"
+import { Twisty } from "cubing/twisty"
+import { BlockMove, getAlgURLParam, Sequence, algToString, parse as algparse} from "cubing/alg"
+import { KPuzzle, KPuzzleDefinition, parse } from "cubing/kpuzzle"
 
 var twisty:Twisty ;
 var puzzle:KPuzzleDefinition ;
